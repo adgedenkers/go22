@@ -53,12 +53,16 @@
   * ============================= */
 
   var Modal = function ( content, options ) {
-    this.settings = $.extend({}, $.fn.modal.defaults, options)
+    this.settings = $.extend({}, $.fn.modal.defaults)
     this.$element = $(content)
       .delegate('.close', 'click.modal', $.proxy(this.hide, this))
 
-    if ( this.settings.show ) {
-      this.show()
+    if ( options ) {
+      $.extend( this.settings, options )
+
+      if ( options.show ) {
+        this.show()
+      }
     }
 
     return this
@@ -77,23 +81,17 @@
 
         escape.call(this)
         backdrop.call(this, function () {
-          var transition = $.support.transition && that.$element.hasClass('fade')
-
           that.$element
             .appendTo(document.body)
             .show()
 
-          if (transition) {
+          if ($.support.transition && that.$element.hasClass('fade')) {
             that.$element[0].offsetWidth // force reflow
           }
 
           that.$element
             .addClass('in')
-
-          transition ?
-            that.$element.one(transitionEnd, function () { that.$element.trigger('shown') }) :
-            that.$element.trigger('shown')
-
+            .trigger('shown')
         })
 
         return this
@@ -101,10 +99,6 @@
 
     , hide: function (e) {
         e && e.preventDefault()
-
-        if ( !this.isShown ) {
-          return this
-        }
 
         var that = this
         this.isShown = false
@@ -226,7 +220,7 @@
   $.fn.modal.defaults = {
     backdrop: false
   , keyboard: false
-  , show: false
+  , show: true
   }
 
 

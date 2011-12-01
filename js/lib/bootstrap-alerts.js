@@ -51,10 +51,9 @@
  /* ALERT CLASS DEFINITION
   * ====================== */
 
-  var Alert = function ( content, options ) {
-    this.settings = $.extend({}, $.fn.alert.defaults, options)
+  var Alert = function ( content, selector ) {
     this.$element = $(content)
-      .delegate(this.settings.selector, 'click', this.close)
+      .delegate(selector || '.close', 'click', this.close)
   }
 
   Alert.prototype = {
@@ -93,19 +92,13 @@
         return $this.data('alert')[options]()
       }
 
-      $(this).data('alert', new Alert( this, options ))
+      $(this).data('alert', new Alert( this ))
 
     })
-  }
-
-  $.fn.alert.defaults = {
-    selector: '.close'
   }
 
   $(document).ready(function () {
-    new Alert($('body'), {
-      selector: '.alert-message[data-alert] .close'
-    })
+    new Alert($('body'), '.alert-message[data-alert] .close')
   })
 
 }( window.jQuery || window.ender );

@@ -81,7 +81,7 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">go.va.gov</a>
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -100,20 +100,46 @@
 
       <div class="content">
         <div class="page-header">
-          <h1>Page name <small>Supporting text or tagline</small></h1>
+          <h1>Welcome to go.va.gov</h1>
         </div>
         <div class="row">
+	
           <div class="span10">
-            <h2>Main content</h2>
+						<div id="add_new_link">
+							<h2>Add a new link:</h2>
+							<input type="text" id="new_link" />
+						</div>
+						<div id="sign_in_message">
+							<h3>You must sign in to add a new link.</h3>
+							<p><a href="signup">Sign up</a> for an account if you don't already have one - it's quick and easy.</p>
+						</div>
+						<div id="top_links">
+							<h2>Most Popular Links</h2>
+							<ol>
+								<li><a href="go.va.gov/pd">OIT Product Development Home Page</a></li>
+							</ol>
+						</div>
           </div>
+
           <div class="span4">
-            <h3>Secondary content</h3>
+	
+						<div id="tag_cloud">
+							
+						</div>
+						
+						<div id="about_gova">
+	            <h3>About go.va.gov</h3>
+							<p>go.va.gov is a URL management application, that allows you to manage your important links, share them, and create short, user and email friendly links. </p>
+							<p>You can organize and tag your links so they're easy to find and share, and even email them right from the site.</p>
+							<p>Links take the following form when shortened:<br>http://go.va.gov/<b>abcde</b></p>
+						</div>
+						
           </div>
         </div>
       </div>
 
       <footer>
-        <p>&copy; Company 2011</p>
+        <p>U.S. Department of Veterans Affairs</p>
       </footer>
 
     </div> <!-- /container -->
